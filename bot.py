@@ -10,7 +10,9 @@ def main():
 
     logger.info("Connexion à Google Sheets...")
 
-    sheet.load_items()
+    count = sheet.load_items()
+
+    logger.info(f"{count} objets chargés.")
 
     logger.success("Le bot est prêt.")
 

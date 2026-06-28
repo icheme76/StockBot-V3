@@ -19,6 +19,13 @@ SCOPES = [
 class StockSheet:
 
     def __init__(self):
+        self.gc = None
+        self.sheet = None
+
+        self.connect()
+
+    def connect(self):
+        """Connexion à Google Sheets."""
 
         creds = Credentials.from_service_account_file(
             GOOGLE_CREDENTIALS,
@@ -34,10 +41,11 @@ class StockSheet:
         )
 
     def load_items(self):
+        """Charge les objets depuis Google Sheets."""
 
         ITEMS.clear()
 
-        values = self.sheet.col_values(3)   # Colonne C
+        values = self.sheet.col_values(3)
 
         ignored = {
             "",
@@ -56,4 +64,4 @@ class StockSheet:
 
             ITEMS.add(value, row)
 
-        print(f"{len(ITEMS.data)} objets chargés.")
+        return len(ITEMS.data)
