@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-
+import unicodedata
 
 @dataclass(slots=True)
 class Item:
@@ -14,19 +14,11 @@ class Items:
 
         self.data = {}
 
-    def normalize(self, text: str):
+    def normalize(self, text: str) -> str:
+        text = unicodedata.normalize("NFD", text)
+        text = text.encode("ascii", "ignore").decode("utf-8")
 
-        return (
-            text.lower()
-            .replace("é", "e")
-            .replace("è", "e")
-            .replace("ê", "e")
-            .replace("à", "a")
-            .replace("ù", "u")
-            .replace("ï", "i")
-            .replace("î", "i")
-            .strip()
-        )
+        return text.lower().strip()
 
     def add(self, name, row):
 
