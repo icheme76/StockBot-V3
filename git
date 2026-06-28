@@ -1,0 +1,6 @@
+git init
+git branch -M main
+git remote add origin https://github.com/icheme76/StockBot-V3.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
