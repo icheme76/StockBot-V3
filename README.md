@@ -1,2 +1,1 @@
-# StockBot-V3
-Bot Discord de gestion des stocks FiveM
+echo "# StockBot-V3" > README.md
