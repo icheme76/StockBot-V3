@@ -1,11 +1,13 @@
 import discord
 
-intents = discord.Intents.default()
+from logger import logger
 
 
 class StockBot(discord.Client):
     def __init__(self):
+        intents = discord.Intents.default()
+
         super().__init__(intents=intents)
 
     async def on_ready(self):
-        print(f"✅ Connecté en tant que {self.user}")
+        logger.success(f"Connecté à Discord : {self.user}")

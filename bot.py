@@ -1,8 +1,12 @@
+from config import DISCORD_TOKEN
 from logger import logger
+
 from core.sheets import StockSheet
+from discord_bot.client import StockBot
 
 
 def main():
+
     logger.info("=" * 50)
     logger.info("StockBot V3")
     logger.info("=" * 50)
@@ -15,7 +19,11 @@ def main():
 
     logger.info(f"{count} objets chargés.")
 
-    logger.success("Le bot est prêt.")
+    bot = StockBot()
+
+    logger.info("Connexion à Discord...")
+
+    bot.run(DISCORD_TOKEN)
 
 
 if __name__ == "__main__":
