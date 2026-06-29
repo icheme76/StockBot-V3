@@ -38,6 +38,21 @@ class StockSheet:
         self.sheet.update_cell(row, 7, new_value)
 
         return new_value
+   
+    def remove_quantity(self, row: int, amount: int):
+
+        cell = self.sheet.cell(row, 8)
+
+        try:
+            current = int(cell.value)
+        except (TypeError, ValueError):
+            current = 0
+
+        new_value = current + amount
+
+        self.sheet.update_cell(row, 8, new_value)
+
+        return new_value
 
     def connect(self):
         """Connexion à Google Sheets."""

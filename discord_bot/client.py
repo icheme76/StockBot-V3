@@ -20,6 +20,7 @@ class StockBot(commands.Bot):
        await self.load_extension("commands.stock")
        await self.load_extension("commands.search")
        await self.load_extension("commands.add")
+       await self.load_extension("commands.remove")
        guild = discord.Object(id=1521082473839071282)
        await self.tree.sync(guild=guild)
 
