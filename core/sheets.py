@@ -70,6 +70,25 @@ class StockSheet:
             .worksheet(WORKSHEET_NAME)
         )
 
+    def get_item_info(self, row: int):
+
+        values = self.sheet.row_values(row)
+
+        return {
+            "base_sud": values[5],
+            "add_sud": values[6],
+            "remove_sud": values[7],
+            "stock_sud": values[8],
+
+            "base_nord": values[12],
+            "add_nord": values[13],
+            "remove_nord": values[14],
+            "stock_nord": values[15],
+
+            "total": values[19],
+        }
+
+
     def load_items(self):
         """Charge les objets depuis Google Sheets."""
 
