@@ -1,6 +1,7 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
+from core.permissions import has_permission
 
 from core.items import ITEMS
 from core.sheets import StockSheet
@@ -25,6 +26,14 @@ class Add(commands.Cog):
         objet: str,
         quantite: int
     ):
+
+        if not has_permission(interaction.user):
+            await interaction.response.send_message(
+                "❌ Vous n'avez pas la permission.",
+                ephemeral=True
+            )
+            return
+
 
         item = ITEMS.get(objet)
 
