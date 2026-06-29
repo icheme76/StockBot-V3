@@ -1,5 +1,6 @@
 from config import DISCORD_TOKEN
 from logger import logger
+from discord.ext import commands
 
 from core.sheets import StockSheet
 from discord_bot.client import StockBot
@@ -22,6 +23,10 @@ def main():
     bot = StockBot()
 
     logger.info("Connexion à Discord...")
+
+    @bot.command()
+    async def ping(ctx):
+        await ctx.send("🏓 Pong !")
 
     bot.run(DISCORD_TOKEN)
 
