@@ -17,6 +17,7 @@ class StockBot(commands.Bot):
 
     async def setup_hook(self):
        await self.load_extension("commands.ping")
+       await self.load_extension("commands.stock")
        guild = discord.Object(id=1521082473839071282)
        await self.tree.sync(guild=guild)
 
