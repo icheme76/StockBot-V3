@@ -24,9 +24,9 @@ class StockSheet:
 
         self.connect()
 
-    def add_quantity(self, row: int, amount: int):
+    def add_quantity(self, row: int, amount: int, column: int):
 
-        cell = self.sheet.cell(row, 7)
+        cell = self.sheet.cell(row, column)
 
         try:
             current = int(cell.value)
@@ -35,13 +35,13 @@ class StockSheet:
 
         new_value = current + amount
 
-        self.sheet.update_cell(row, 7, new_value)
+        self.sheet.update_cell(row, column, new_value)
 
         return new_value
    
-    def remove_quantity(self, row: int, amount: int):
+    def remove_quantity(self, row: int, amount: int, column: int):
 
-        cell = self.sheet.cell(row, 8)
+        cell = self.sheet.cell(row, column)
 
         try:
             current = int(cell.value)
@@ -50,7 +50,7 @@ class StockSheet:
 
         new_value = current + amount
 
-        self.sheet.update_cell(row, 8, new_value)
+        self.sheet.update_cell(row, column, new_value)
 
         return new_value
 

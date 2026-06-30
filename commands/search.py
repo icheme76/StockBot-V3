@@ -1,10 +1,11 @@
 import discord
 from discord import app_commands
 from discord.ext import commands
+from core.autocomplete import item_autocomplete
 
 from core.items import ITEMS
 
-GUILD_ID = 1521082473839071282
+GUILD_ID = 1503533579580342382
 
 
 class Search(commands.Cog):
@@ -17,6 +18,7 @@ class Search(commands.Cog):
         description="Recherche un objet."
     )
     @app_commands.guilds(discord.Object(id=GUILD_ID))
+    @app_commands.autocomplete(objet=item_autocomplete)
     async def search(
         self,
         interaction: discord.Interaction,

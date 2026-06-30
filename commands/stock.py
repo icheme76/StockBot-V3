@@ -4,7 +4,7 @@ from discord.ext import commands
 
 from core.items import ITEMS
 
-GUILD_ID = 1521082473839071282
+GUILD_ID = 1503533579580342382
 
 
 class Stock(commands.Cog):
