@@ -2,7 +2,6 @@ aiohappyeyeballs==2.6.2
 aiohttp==3.14.1
 aiosignal==1.4.0
 attrs==26.1.0
-audioop-lts==0.2.2
 beautifulsoup4==4.15.0
 certifi==2026.6.17
 cffi==2.0.0
@@ -28,4 +27,5 @@ requests-oauthlib==2.0.0
 soupsieve==2.8.4
 typing_extensions==4.15.0
 urllib3==2.7.0
+loguru==0.7.3
 yarl==1.24.2
